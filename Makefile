@@ -57,17 +57,20 @@ dist: distclean
 	rm -rf surf-$(VERSION)
 
 install: all
-	#mkdir -p $(DESTDIR)$(PREFIX)/bin
-	cp -f surf ~/.sndr/bin
-	#cp -f surf $(DESTDIR)$(PREFIX)/bin
-	chmod 755 ~/.sndr/bin/surf
-	#chmod 755 $(DESTDIR)$(PREFIX)/bin/surf
-	#mkdir -p $(DESTDIR)$(LIBDIR)
-	#cp -f libsurf-webext.so $(DESTDIR)$(LIBDIR)
-	#chmod 644 $(DESTDIR)$(LIBDIR)/libsurf-webext.so
-	#mkdir -p $(DESTDIR)$(MANPREFIX)/man1
-	#sed "s/VERSION/$(VERSION)/g" < surf.1 > $(DESTDIR)$(MANPREFIX)/man1/surf.1
-	#chmod 644 $(DESTDIR)$(MANPREFIX)/man1/surf.1
+	mkdir -p $(DESTDIR)$(PREFIX)/bin
+	cp -f surf $(DESTDIR)$(PREFIX)/bin
+	chmod 755 $(DESTDIR)$(PREFIX)/bin/surf
+	
+	cp -f surf /home/sander/.sndr/bin
+	chmod 755 /home/sander/.sndr/bin/surf
+	chown sander.sander /home/sander/.sndr/bin/surf
+
+	mkdir -p $(DESTDIR)$(LIBDIR)
+	cp -f libsurf-webext.so $(DESTDIR)$(LIBDIR)
+	chmod 644 $(DESTDIR)$(LIBDIR)/libsurf-webext.so
+	mkdir -p $(DESTDIR)$(MANPREFIX)/man1
+	sed "s/VERSION/$(VERSION)/g" < surf.1 > $(DESTDIR)$(MANPREFIX)/man1/surf.1
+	chmod 644 $(DESTDIR)$(MANPREFIX)/man1/surf.1
 
 uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/bin/surf
