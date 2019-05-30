@@ -61,10 +61,6 @@ install: all
 	cp -f surf $(DESTDIR)$(PREFIX)/bin
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/surf
 	
-	cp -f surf /home/sander/.sndr/bin
-	chmod 755 /home/sander/.sndr/bin/surf
-	chown sander.sander /home/sander/.sndr/bin/surf
-
 	mkdir -p $(DESTDIR)$(LIBDIR)
 	cp -f libsurf-webext.so $(DESTDIR)$(LIBDIR)
 	chmod 644 $(DESTDIR)$(LIBDIR)/libsurf-webext.so
